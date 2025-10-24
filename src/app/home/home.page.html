@@ -1,20 +1,68 @@
-<ion-header [translucent]="true">
+<ion-header class="main-header">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Gestión de Productos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="logout-btn" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="home-content">
+  <div class="overlay"></div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="dashboard-container">
+    <!-- Tarjeta para nuevo producto -->
+    <div class="card glass-card animate-fadein">
+      <h2><ion-icon name="add-circle-outline"></ion-icon> Nuevo producto</h2>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nuevoNombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input type="number" [(ngModel)]="nuevoPrecio"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" shape="round" class="neon-button" (click)="agregarProducto()">
+        Agregar producto
+      </ion-button>
+    </div>
+
+    <!-- Lista de productos -->
+    <div class="product-section animate-fadein-delay" *ngIf="productos.length > 0; else noData">
+      <h2><ion-icon name="cube-outline"></ion-icon> Tus productos</h2>
+
+      <div class="product-list">
+        <div class="product-card" *ngFor="let producto of productos">
+          <div class="product-info">
+            <h3>{{ producto.nombre }}</h3>
+            <p>${{ producto.precio }}</p>
+          </div>
+
+          <div class="actions">
+            <ion-button class="edit-btn" fill="solid" (click)="editarProducto(producto)">
+              <ion-icon name="create-outline"></ion-icon>
+              Editar
+            </ion-button>
+            <ion-button class="delete-btn" fill="solid" (click)="eliminarProducto(producto.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+              Eliminar
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <div class="no-products animate-fadein-delay">
+        <ion-icon name="cube-outline"></ion-icon>
+        <p>No hay productos aún. Agrega uno para empezar 🚀</p>
+      </div>
+    </ng-template>
   </div>
 </ion-content>

@@ -1,0 +1,122 @@
+$primary-color: #5865f2;
+$bg-overlay: rgba(10, 10, 20, 0.8);
+$text-color: #ffffff;
+$card-glass: rgba(50, 50, 70, 0.55);
+
+.register-page {
+  --ion-background-color: transparent;
+ background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1950&q=80')
+    no-repeat center center / cover;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: $bg-overlay;
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+/* ✅ Contenedor centrado en cualquier pantalla */
+.register-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  margin: auto;
+  height: 100%;
+}
+
+/* 💎 Tarjeta estilo Discord */
+.register-card {
+  width: 100%;
+  background: $card-glass;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: $text-color;
+  padding: 1rem;
+
+  ion-card-header {
+    text-align: center;
+    ion-card-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $text-color;
+    }
+    .subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+  }
+
+  ion-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    margin-top: 1rem;
+
+    ion-item {
+      --background: rgba(255, 255, 255, 0.08);
+      --border-radius: 12px;
+      ion-label {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      ion-input {
+        color: #fff;
+      }
+    }
+
+    ion-button {
+      --border-radius: 14px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+
+      &.button-solid {
+        --background: $primary-color;
+      }
+
+      &.button-clear {
+        color: lighten($primary-color, 20%);
+      }
+    }
+  }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 480px) {
+  .register-card {
+    max-width: 90%;
+    ion-card-title {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* ✨ Animación de aparición */
+.animate-fadein {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

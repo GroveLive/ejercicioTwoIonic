@@ -1,0 +1,29 @@
+<ion-content class="register-page">
+  <div class="background-overlay"></div>
+
+  <div class="register-wrapper">
+    <ion-card class="register-card animate-fadein">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Crea tu cuenta ✨</ion-card-title>
+        <p class="ion-text-center subtitle">Únete a nuestra comunidad</p>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item fill="solid">
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input [(ngModel)]="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item fill="solid">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" shape="round" (click)="register()">Registrarse</ion-button>
+        <ion-button expand="block" fill="clear" routerLink="/login">
+          ¿Ya tienes cuenta? Inicia sesión
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

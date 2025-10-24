@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:host {
+  font-family: 'Poppins', sans-serif;
+}
+
+.settings-content {
+  --ion-background-color: transparent;
+  background: url('https://images.unsplash.com/photo-1624382297592-8043e76d4ef7?auto=format&fit=crop&w=1920&q=80')
+    no-repeat center center / cover;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 0;
+}
+
+.settings-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 700px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  ion-card-title {
+    color: #b692f6;
+    font-weight: 600;
+  }
+  p, li {
+    color: #ddd;
+  }
+  ion-button {
+    margin-top: 20px;
+  }
+}
+
+.animate-fadein {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+.animate-fadein-delay {
+  animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

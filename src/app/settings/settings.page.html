@@ -1,0 +1,41 @@
+<ion-header class="settings-header">
+  <ion-toolbar>
+    <ion-title>Configuración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="settings-content">
+  <div class="overlay"></div>
+
+  <div class="settings-container animate-fadein">
+    <ion-card class="glass-card">
+      <ion-card-header>
+        <ion-card-title>Perfil de usuario</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p><strong>Correo:</strong> {{ userEmail }}</p>
+
+        <ion-button expand="block" color="danger" shape="round" (click)="logout()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          Cerrar sesión
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="glass-card animate-fadein-delay">
+      <ion-card-header>
+        <ion-card-title>Opciones futuras</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>Puedes agregar aquí ajustes como:</p>
+        <ul>
+          <li>🔒 Cambiar contraseña</li>
+          <li>🎨 Cambiar tema</li>
+          <li>📧 Actualizar correo</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
